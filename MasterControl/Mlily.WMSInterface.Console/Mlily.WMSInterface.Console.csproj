@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5731C3E1-8507-4E32-86D1-0E9BB94C4F85}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Mlily.WMSInterface.Console</RootNamespace>
+    <AssemblyName>Mlily.WMSInterface.Console</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentScheduler, Version=5.3.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentScheduler.5.3.0\lib\net40\FluentScheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="JobRegistry.cs" />
+    <Compile Include="Jobs\ReceivingInventoryJob.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemJobManager.cs" />
+    <Compile Include="ViewModel\BillDeliveryContent.cs" />
+    <Compile Include="ViewModel\CustomizedMaterialContent.cs" />
+    <Compile Include="ViewModel\DeliveryContent.cs" />
+    <Compile Include="ViewModel\HandmadeMaterialContent.cs" />
+    <Compile Include="ViewModel\InspectionReportContent.cs" />
+    <Compile Include="ViewModel\ProductionOrderReceivingContent.cs" />
+    <Compile Include="ViewModel\PurchasingOrderContent.cs" />
+    <Compile Include="ViewModel\ReceivingInventoryContent.cs" />
+    <Compile Include="ViewModel\RequestResultViewModel.cs" />
+    <Compile Include="ViewModel\ContentAbstract.cs" />
+    <Compile Include="ViewModel\ResponseBodyViewModel.cs" />
+    <Compile Include="ViewModel\ResponseResultViewModel.cs" />
+    <Compile Include="ViewModel\WithoutPurchasingContent.cs" />
+    <Compile Include="ViewModel\WMSResponseResultViewModel.cs" />
+    <Compile Include="ViewModel\WorkshopMaterialContent.cs" />
+    <Compile Include="XmlSerializerExtent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Database.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Mlily.WMSInterface.Access\Mlily.WMSInterface.Common\Mlily.WMSInterface.Common.csproj">
+      <Project>{ef8b25f9-7b18-42f2-8e67-49d5e454500b}</Project>
+      <Name>Mlily.WMSInterface.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Mlily.WMSInterface.Access\Mlily.WMSInterface.Data\Mlily.WMSInterface.Data.csproj">
+      <Project>{579DD834-D16F-4104-BA72-0B3DEB4D4DFD}</Project>
+      <Name>Mlily.WMSInterface.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Mlily.WMSInterface.Access\Mlily.WMSInterface.ServiceModel\Mlily.WMSInterface.ServiceModel.csproj">
+      <Project>{a8f23486-4541-4bd4-b716-d2558fb9e513}</Project>
+      <Name>Mlily.WMSInterface.ServiceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Mlily.WMSInterface.Access\Mlily.WMSInterface.Service\Mlily.WMSInterface.Service.csproj">
+      <Project>{56e3fa94-b686-46e2-8836-0dae2c4c04b3}</Project>
+      <Name>Mlily.WMSInterface.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
