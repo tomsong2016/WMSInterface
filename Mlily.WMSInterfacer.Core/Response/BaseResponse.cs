@@ -11,13 +11,10 @@ namespace Mlily.WMSInterfacer.Core.Response
         bool IsSuccess { get; set; }
     }
 
-    [Serializable]
-    [XmlRootAttribute("SERVICE")]
     public class ResponseServiceModel: BaseResponse
     {
         [XmlElement("SERVICERESPONSE")]
         public ServiceResponse ServiceResponse { get; set; }
-
 
         [XmlElement("DATA")]
         public ResponseDataInfo Data { get; set; }
