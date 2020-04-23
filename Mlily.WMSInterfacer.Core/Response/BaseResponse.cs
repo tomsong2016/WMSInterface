@@ -8,6 +8,7 @@ namespace Mlily.WMSInterfacer.Core.Response
 {
     public interface BaseResponse
     {
+        bool IsSuccess { get; set; }
     }
 
     [Serializable]
@@ -20,6 +21,9 @@ namespace Mlily.WMSInterfacer.Core.Response
 
         [XmlElement("DATA")]
         public ResponseDataInfo Data { get; set; }
+
+        [XmlIgnore]
+        public bool IsSuccess { get; set; }
     }
 
 
@@ -38,7 +42,7 @@ namespace Mlily.WMSInterfacer.Core.Response
     public class ResultInfo
     {
         [XmlElement("REQID")]
-        public string ReqID { get; set; }
+        public Guid ReqID { get; set; }
 
         [XmlElement("SUBRETURNCODE")]
         public int SubReturncode { get; set; }

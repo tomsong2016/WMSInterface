@@ -10,7 +10,14 @@ namespace Mlily.WMSInterfacer.Core
     {
         public static Type Get(string data)
         {
-            return typeof(RequestServiceModel<InspectionReportRequest, InspectionReportResponse>);
+            switch (data)
+            {
+                case "INT_MM000200035":
+                    return typeof(RequestServiceModel<InspectionReportRequest, InspectionReportResponse>);
+
+                default:
+                    return null;
+            }
         }
     }
 }

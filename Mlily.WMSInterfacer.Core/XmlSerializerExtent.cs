@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace Mlily.WMSInterfacer.Core
@@ -37,8 +38,22 @@ namespace Mlily.WMSInterfacer.Core
             XmlSerializer xml = new XmlSerializer(type);
             try
             {
+                MemoryStream ms = new MemoryStream();
+                //设置序序化XML格式
+                XmlWriterSettings xws = new XmlWriterSettings();
+                xws.Indent = true;
+                xws.OmitXmlDeclaration = true;
+                xws.Encoding = Encoding.UTF8;
+                XmlWriter xtw = XmlTextWriter.Create(ms, xws);
+                //去掉要结点的 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 属性
+                XmlSerializerNamespaces _namespaces = new XmlSerializerNamespaces(
+                    new XmlQualifiedName[] {
+                        new XmlQualifiedName(string.Empty, "aa")
+                 });
+
+
                 //序列化对象
-                xml.Serialize(Stream, obj);
+                xml.Serialize(Stream, obj, _namespaces);
             }
             catch (InvalidOperationException e)
             {
@@ -50,6 +65,30 @@ namespace Mlily.WMSInterfacer.Core
             sr.Dispose();
             Stream.Dispose();
             return str;
+
+
+            //XmlSerializer xs = new XmlSerializer(obj.GetType());
+            //MemoryStream ms = new MemoryStream();
+            ////设置序序化XML格式
+            //XmlWriterSettings xws = new XmlWriterSettings();
+            //xws.Indent = true;
+            //xws.OmitXmlDeclaration = true;
+            //xws.Encoding = Encoding.UTF8;
+            //XmlWriter xtw = XmlTextWriter.Create(ms, xws);
+            ////去掉要结点的 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 属性
+            //XmlSerializerNamespaces _namespaces = new XmlSerializerNamespaces(
+            //    new XmlQualifiedName[] {
+            //            new XmlQualifiedName(string.Empty, "aa")
+            // });
+            //xs.Serialize(xtw, obj, _namespaces);
+            //ms.Position = 0;
+            //XmlDocument xmlDoc = new XmlDocument();
+            //xmlDoc.Load(ms);
+            ////给文档添加<?xml version="1.0" encoding="utf-8"?>
+            //XmlDeclaration xmlDecl = xmlDoc.CreateXmlDeclaration("1.0", "utf-8", null);
+            //xmlDoc.InsertBefore(xmlDecl, xmlDoc.DocumentElement);
+
+
         }
 
         /// <summary>  

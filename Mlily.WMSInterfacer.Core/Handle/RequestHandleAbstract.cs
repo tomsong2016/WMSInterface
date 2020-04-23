@@ -16,9 +16,14 @@ namespace Mlily.WMSInterfacer.Core.Handle
 
         public string Handle(object obj) 
         {
-            Validate(obj);
+            var response =  Validate(obj);
 
-            return HandleData(obj);
+            if (response.IsSuccess)
+            {
+                return HandleData(obj);
+            }
+
+            return XmlSerializerExtent.SerializeXML(response);
         }
     }
 
