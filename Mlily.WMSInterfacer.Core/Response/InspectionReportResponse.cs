@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Mlily.WMSInterfacer.Core.Response
 {
-    public class InspectionReportResponse:BaseResponse
+    public class InspectionReportResponse: ResponseServiceModel
     {
     }
 }

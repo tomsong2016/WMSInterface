@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 
 namespace Mlily.WMSInterfacer.Core.Response
 {
-    public abstract class BaseResponse
+    public interface BaseResponse
     {
     }
 

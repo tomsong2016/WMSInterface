@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 
 namespace Mlily.WMSInterfacer.Core.Request
 {
-    public abstract class BaseRequest<T,K> where T: BaseRequestData where K : BaseResponse
+    public interface BaseRequest<out T, out K> where T: BaseRequestData where K : BaseResponse
     {
         
     }
@@ -20,6 +20,7 @@ namespace Mlily.WMSInterfacer.Core.Request
 
         [XmlElement("DATA")]
         public RequestDataInfo<T> ReqeustData { get; set; }
+
     }
 
     public class ControlInfo

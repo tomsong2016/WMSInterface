@@ -1,4 +1,5 @@
-﻿using Mlily.WMSInterfacer.Core.Request;
+﻿using Mlily.WMSInterfacer.Core.Handle;
+using Mlily.WMSInterfacer.Core.Request;
 using Mlily.WMSInterfacer.Core.Response;
 using System;
 using System.Collections.Generic;
@@ -6,11 +7,13 @@ using System.Text;
 
 namespace Mlily.WMSInterfacer.Core
 {
-    public class SAPClient
+    public class SAPClient:IClient
     {
-        public T Excute<T>(BaseRequest<BaseRequestData> request) where T : BaseResponse 
+        public string Excute(string data) 
         {
-            return null;
+            RequestHandleAbstract handleAbstract = new InspectionReportHandle();
+
+            return handleAbstract.Handle(data.Deserialize(RequestTypeFactory.Get(data)));
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Mlily.WMSInterface.Test
             XMLHelper helper = new XMLHelper();
             var model = helper.Do();
 
-            Console.WriteLine(model.ReqeustData.RequestInfo.Content.Items.Count);
+            //Console.WriteLine(model.ReqeustData.RequestInfo.Content.Items.Count);
             Assert.IsTrue(true);
         }
     }
