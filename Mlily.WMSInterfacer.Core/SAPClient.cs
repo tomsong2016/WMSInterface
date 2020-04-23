@@ -17,7 +17,7 @@ namespace Mlily.WMSInterfacer.Core
             Regex reg = new Regex("<SERVICEID>(.+)</SERVICEID>");
             Match match = reg.Match(data);
             string value = match.Groups[1].Value;
-            Type type = GetAbstractList().Where(k => k.GetCustomAttributes().Any(m => m is ServiceIdAttribute && ((ServiceIdAttribute)m).Name == value))?.FirstOrDefault();
+            Type type = GetAbstractList<RequestHandleAbstract>().Where(k => k.GetCustomAttributes().Any(m => m is ServiceIdAttribute && ((ServiceIdAttribute)m).Name == value))?.FirstOrDefault();
 
             //Type type = GetAbstractList().Where(k => k.GetCustomAttributes().Where(m => m is ServiceIdAttribute && ((ServiceIdAttribute)m).Name == value)).FirstOrDefault;
             //foreach (var item in GetAbstractList(k=>k.GetCustomAttributes().Where(m => m is ServiceIdAttribute && ((ServiceIdAttribute)m).Name == value)))
@@ -61,11 +61,11 @@ namespace Mlily.WMSInterfacer.Core
         //}
 
 
-        private List<Type> GetAbstractList()
+        private List<Type> GetAbstractList<T>() where T:class
         {
 
             var types = Assembly.GetCallingAssembly().GetTypes();
-            var aType = typeof(RequestHandleAbstract);
+            var aType = typeof(T);
             List<Type> alist = new List<Type>();
             foreach (var type in types)
             {

@@ -14,7 +14,8 @@ namespace Mlily.WMSInterfacer.Core
             {
                 case "INT_MM000200035":
                     return typeof(DefaultRequestModel<InspectionReportRequest, InspectionReportResponse>);
-
+                case "INT_MM000200011":
+                    return typeof(DefaultRequestModel<WorkshopMaterialRequest, WorkshopMaterialResponse>);
                 default:
                     return null;
             }
