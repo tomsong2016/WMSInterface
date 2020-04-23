@@ -6,8 +6,8 @@ using System.Xml.Serialization;
 namespace Mlily.WMSInterfacer.Core.Response
 {
     [Serializable]
-    [XmlRootAttribute("SERVICE")]
-    public class InspectionReportResponse: ResponseServiceModel
+    [XmlRoot("SERVICE")]
+    public class InspectionReportResponse: DefaultResponseModel
     {
         
     }

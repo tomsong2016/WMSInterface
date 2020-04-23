@@ -13,7 +13,7 @@ namespace Mlily.WMSInterfacer.Core.Request
 
     [Serializable]
     [XmlRoot("SERVICE")]
-    public class RequestServiceModel<T, K> : BaseRequest<T, K> where T : BaseRequestData where K :BaseResponse
+    public class DefaultRequestModel<T, K> : BaseRequest<T, K> where T : BaseRequestData where K :BaseResponse
     {
         [XmlElement("CONTROL")]
         public ControlInfo ControlInfo { get; set; }

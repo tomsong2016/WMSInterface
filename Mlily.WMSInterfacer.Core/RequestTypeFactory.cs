@@ -13,7 +13,7 @@ namespace Mlily.WMSInterfacer.Core
             switch (data)
             {
                 case "INT_MM000200035":
-                    return typeof(RequestServiceModel<InspectionReportRequest, InspectionReportResponse>);
+                    return typeof(DefaultRequestModel<InspectionReportRequest, InspectionReportResponse>);
 
                 default:
                     return null;

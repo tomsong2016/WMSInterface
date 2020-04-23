@@ -1,7 +1,4 @@
-﻿using Mlily.WMSInterfacer.Core.Request;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 using System.Xml.Serialization;
 
 namespace Mlily.WMSInterfacer.Core.Response
@@ -11,7 +8,7 @@ namespace Mlily.WMSInterfacer.Core.Response
         bool IsSuccess { get; set; }
     }
 
-    public class ResponseServiceModel: BaseResponse
+    public class DefaultResponseModel: BaseResponse
     {
         [XmlElement("SERVICERESPONSE")]
         public ServiceResponse ServiceResponse { get; set; }
