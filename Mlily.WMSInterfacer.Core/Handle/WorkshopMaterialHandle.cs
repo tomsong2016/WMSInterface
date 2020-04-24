@@ -13,36 +13,22 @@ namespace Mlily.WMSInterfacer.Core.Handle
         {
             var model = (DefaultRequestModel<WorkshopMaterialRequestData, WorkshopMaterialResponse>)obj;
             //Debug.WriteLine(model.ReqeustData.RequestInfo.Content.Items.Count);
-
-            WorkshopMaterialResponse reportResponse = new WorkshopMaterialResponse();
-            reportResponse.IsSuccess = true;
-
-            ServiceResponse serviceResponse = new ServiceResponse();
-            serviceResponse.Returncode = "0";
-            reportResponse.ServiceResponse = serviceResponse;
-
-            ResponseDataInfo dataInfo = new ResponseDataInfo();
-            ResultInfo resultInfo = new ResultInfo();
-            resultInfo.ReqID = model.ReqeustData.RequestInfo.ReqID;
-            resultInfo.SubReturncode = 0;
-            resultInfo.SubReturncode = 0;
-            resultInfo.Reserve = "OK";
-
-            dataInfo.ResultInfo = resultInfo;
-            reportResponse.Data = dataInfo;
+            var reportResponse = WorkshopMaterialResponse.OK(model.ReqeustData.RequestInfo.ReqID);
 
 
 
             return reportResponse.Serializer(typeof(WorkshopMaterialResponse));
         }
 
+        public override BaseResponse HandleDataExtent(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
         public override BaseResponse Validate(object obj)
         {
             var model = (DefaultRequestModel<WorkshopMaterialRequestData, WorkshopMaterialResponse>)obj;
-
-
-            WorkshopMaterialResponse reportResponse = new WorkshopMaterialResponse();
-            reportResponse.IsSuccess = true;
+            var reportResponse = WorkshopMaterialResponse.OK(model.ReqeustData.RequestInfo.ReqID);
             return reportResponse;
         }
     }

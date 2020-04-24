@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Mlily.WMSInterfacer.Core.Handle
 {
-    [ServiceId("INT_MM000200006")]
-    public class DeliveryHandle : RequestHandleAbstract
+    [ServiceId("INT_MM000200009")]
+    public class HandmadeMaterialHandle : RequestHandleAbstract
     {
         public override string HandleData(object obj)
         {

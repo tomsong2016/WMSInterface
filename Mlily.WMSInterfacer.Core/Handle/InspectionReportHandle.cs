@@ -13,39 +13,22 @@ namespace Mlily.WMSInterfacer.Core.Handle
         public override string HandleData(object obj)
         {
             var model = (DefaultRequestModel<InspectionReportRequestData, InspectionReportResponse>)obj;
+            var reportResponse = InspectionReportResponse.OK(model.ReqeustData.RequestInfo.ReqID);
 
-            
-            Debug.WriteLine(model.ReqeustData.RequestInfo.Content.Items.Count);
-
-
-            InspectionReportResponse reportResponse = new InspectionReportResponse();
-            reportResponse.IsSuccess = true;
-
-            ServiceResponse serviceResponse = new ServiceResponse();
-            serviceResponse.Returncode = "0";
-            reportResponse.ServiceResponse = serviceResponse;
-
-            ResponseDataInfo dataInfo = new ResponseDataInfo();
-            ResultInfo resultInfo = new ResultInfo();
-            resultInfo.ReqID = model.ReqeustData.RequestInfo.ReqID;
-            resultInfo.SubReturncode = 0;
-            resultInfo.SubReturncode = 0;
-            resultInfo.Reserve = "OK";
-
-            dataInfo.ResultInfo = resultInfo;
-            reportResponse.Data = dataInfo;
-
-
-
+            //Debug.WriteLine(model.ReqeustData.RequestInfo.Content.Items.Count);
             return reportResponse.Serializer(typeof(InspectionReportResponse));          //XmlSerializerExtent.SerializeXML(reportResponse);
+        }
+
+        public override BaseResponse HandleDataExtent(object obj)
+        {
+            throw new NotImplementedException();
         }
 
         public override BaseResponse Validate(object obj)
         {
             var model = (DefaultRequestModel<InspectionReportRequestData, InspectionReportResponse>)obj;
+            var reportResponse = InspectionReportResponse.OK(model.ReqeustData.RequestInfo.ReqID);
 
-            InspectionReportResponse reportResponse = new InspectionReportResponse();
-            reportResponse.IsSuccess = true;
             return reportResponse;
         }
     }

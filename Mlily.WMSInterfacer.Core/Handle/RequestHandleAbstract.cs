@@ -14,7 +14,9 @@ namespace Mlily.WMSInterfacer.Core.Handle
         public abstract string HandleData(object obj);
 
 
-        public string Handle(object obj) 
+        public abstract BaseResponse HandleDataExtent(object obj);
+
+        public string Handle(object obj, string serviceId) 
         {
             var response =  Validate(obj);
 

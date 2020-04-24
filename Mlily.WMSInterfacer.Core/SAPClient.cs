@@ -12,13 +12,18 @@ namespace Mlily.WMSInterfacer.Core
 {
     public class SAPClient:IClient
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public string Excute(string data) 
         {
             Regex reg = new Regex("<SERVICEID>(.+)</SERVICEID>");
             Match match = reg.Match(data);
             string value = match.Groups[1].Value;
             Type type = GetAbstractList<RequestHandleAbstract>().Where(k => k.GetCustomAttributes().Any(m => m is ServiceIdAttribute && ((ServiceIdAttribute)m).Name == value))?.FirstOrDefault();
-
+            #region Test
             //Type type = GetAbstractList().Where(k => k.GetCustomAttributes().Where(m => m is ServiceIdAttribute && ((ServiceIdAttribute)m).Name == value)).FirstOrDefault;
             //foreach (var item in GetAbstractList(k=>k.GetCustomAttributes().Where(m => m is ServiceIdAttribute && ((ServiceIdAttribute)m).Name == value)))
             //{
@@ -41,26 +46,35 @@ namespace Mlily.WMSInterfacer.Core
             //        break;
             //    }
             //}
-
+            #endregion
             if (type == null)
             {
                 return null;
             }
 
             RequestHandleAbstract handleAbstract = (RequestHandleAbstract)Activator.CreateInstance(type);
-            return handleAbstract.Handle(data.Deserialize(RequestTypeFactory.Get(value)));
+            return handleAbstract.Handle(data.Deserialize(RequestTypeFactory.Get(value)), value);
         }
 
-        //private List<Type> GetList()
-        //{
-        //    return AppDomain
-        //    .CurrentDomain
-        //    .GetAssemblies()
-        //    .SelectMany(item => item.GetTypes())
-        //    .Where(item => item.GetInterfaces().Contains(typeof(ITest))).ToList();
-        //}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        private List<Type> GetList<T>()
+        {
+            return AppDomain
+            .CurrentDomain
+            .GetAssemblies()
+            .SelectMany(item => item.GetTypes())
+            .Where(item => item.GetInterfaces().Contains(typeof(T))).ToList();
+        }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         private List<Type> GetAbstractList<T>() where T:class
         {
 

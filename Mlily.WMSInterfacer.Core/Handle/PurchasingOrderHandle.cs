@@ -13,6 +13,11 @@ namespace Mlily.WMSInterfacer.Core.Handle
             throw new NotImplementedException();
         }
 
+        public override BaseResponse HandleDataExtent(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
         public override BaseResponse Validate(object obj)
         {
             throw new NotImplementedException();
