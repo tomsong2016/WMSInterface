@@ -18,6 +18,8 @@ namespace Mlily.WMSInterfacer.Core
                     return typeof(DefaultRequestModel<WorkshopMaterialRequestData, WorkshopMaterialResponse>);
                 case "INT_MM000200006":
                     return typeof(DefaultRequestModel<DeliveryRequestData, DeliveryResponse>);
+                case "INT_MM000200007":
+                    return typeof(DefaultRequestModel<PurchasingOrderRequestData, PurchasingOrderResponse>);
                 default:
                     return null;
             }
