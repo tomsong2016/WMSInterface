@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 
 namespace Mlily.WMSInterfacer.Core.Request
 {
-    public class InspectionReportRequest : BaseRequestData
+    public class InspectionReportRequestData : BaseRequestData
     {
         /// <summary>
         /// ASN号(WMASN)

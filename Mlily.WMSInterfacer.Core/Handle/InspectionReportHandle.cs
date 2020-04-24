@@ -12,7 +12,7 @@ namespace Mlily.WMSInterfacer.Core.Handle
     {
         public override string HandleData(object obj)
         {
-            var model = (DefaultRequestModel<InspectionReportRequest, InspectionReportResponse>)obj;
+            var model = (DefaultRequestModel<InspectionReportRequestData, InspectionReportResponse>)obj;
 
             
             Debug.WriteLine(model.ReqeustData.RequestInfo.Content.Items.Count);
@@ -42,7 +42,7 @@ namespace Mlily.WMSInterfacer.Core.Handle
 
         public override BaseResponse Validate(object obj)
         {
-            var model = (DefaultRequestModel<InspectionReportRequest, InspectionReportResponse>)obj;
+            var model = (DefaultRequestModel<InspectionReportRequestData, InspectionReportResponse>)obj;
 
             InspectionReportResponse reportResponse = new InspectionReportResponse();
             reportResponse.IsSuccess = true;

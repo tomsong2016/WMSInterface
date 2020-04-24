@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 
 namespace Mlily.WMSInterfacer.Core.Request
 {
-    public class WorkshopMaterialRequest:BaseRequestData
+    public class WorkshopMaterialRequestData:BaseRequestData
     {
         /// <summary>
         /// 领料单号(LLDH)

@@ -11,7 +11,7 @@ namespace Mlily.WMSInterfacer.Core.Handle
     {
         public override string HandleData(object obj)
         {
-            var model = (DefaultRequestModel<WorkshopMaterialRequest, WorkshopMaterialResponse>)obj;
+            var model = (DefaultRequestModel<WorkshopMaterialRequestData, WorkshopMaterialResponse>)obj;
             //Debug.WriteLine(model.ReqeustData.RequestInfo.Content.Items.Count);
 
             WorkshopMaterialResponse reportResponse = new WorkshopMaterialResponse();
@@ -38,7 +38,7 @@ namespace Mlily.WMSInterfacer.Core.Handle
 
         public override BaseResponse Validate(object obj)
         {
-            var model = (DefaultRequestModel<WorkshopMaterialRequest, WorkshopMaterialResponse>)obj;
+            var model = (DefaultRequestModel<WorkshopMaterialRequestData, WorkshopMaterialResponse>)obj;
 
 
             WorkshopMaterialResponse reportResponse = new WorkshopMaterialResponse();
