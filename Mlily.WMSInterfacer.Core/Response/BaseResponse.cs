@@ -40,26 +40,7 @@ namespace Mlily.WMSInterfacer.Core.Response
             return new DefaultResponseModel(reqId, true, message);
         }
 
-        public static DefaultResponseModel SetError(DefaultResponseModel model, string message)
-        {
-            model.IsSuccess = false;
-            model.ServiceResponse.Returncode = 2;
-            model.Data.ResultInfo.Reserve = message;
-            model.Data.ResultInfo.SubReturncode = 2;
-            model.Data.ResultInfo.SubReturninfo = "处理不成功";
-
-            return model;
-        }
-
-        public static DefaultResponseModel SetOK(DefaultResponseModel model)
-        {
-            model.IsSuccess = true;
-            model.ServiceResponse.Returncode = 0;
-            model.Data.ResultInfo.Reserve = "预留内容";
-            model.Data.ResultInfo.SubReturncode = 0;
-            model.Data.ResultInfo.SubReturninfo = "处理成功";
-            return model;
-        }
+        
     }
 
 
@@ -108,5 +89,29 @@ namespace Mlily.WMSInterfacer.Core.Response
             this.Reserve = reserve;
         }
 
+    }
+
+    public static class DefaultResponseModelExtend
+    {
+        public static DefaultResponseModel SetError(this DefaultResponseModel model, string message)
+        {
+            model.IsSuccess = false;
+            model.ServiceResponse.Returncode = 2;
+            model.Data.ResultInfo.Reserve = message;
+            model.Data.ResultInfo.SubReturncode = 2;
+            model.Data.ResultInfo.SubReturninfo = "处理不成功";
+
+            return model;
+        }
+
+        public static DefaultResponseModel SetOK(this DefaultResponseModel model)
+        {
+            model.IsSuccess = true;
+            model.ServiceResponse.Returncode = 0;
+            model.Data.ResultInfo.Reserve = "预留内容";
+            model.Data.ResultInfo.SubReturncode = 0;
+            model.Data.ResultInfo.SubReturninfo = "处理成功";
+            return model;
+        }
     }
 }
