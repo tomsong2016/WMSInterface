@@ -15,9 +15,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mlily.WMSInterface.ServiceM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mlily.WMSInterface.Console", "MasterControl\Mlily.WMSInterface.Console\Mlily.WMSInterface.Console.csproj", "{5731C3E1-8507-4E32-86D1-0E9BB94C4F85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mlily.WMSInterfacer.Core", "Mlily.WMSInterfacer.Core\Mlily.WMSInterfacer.Core.csproj", "{08D1147D-6DDB-4DAA-9311-3CF0E36889F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mlily.WMSInterfacer.Core", "Mlily.WMSInterfacer.Core\Mlily.WMSInterfacer.Core.csproj", "{08D1147D-6DDB-4DAA-9311-3CF0E36889F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mlily.WMSInterface.Test", "Mlily.WMSInterface.Test\Mlily.WMSInterface.Test.csproj", "{E4169B9D-8F6A-4FFA-90D5-44292C448416}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mlily.WMSInterface.Test", "Mlily.WMSInterface.Test\Mlily.WMSInterface.Test.csproj", "{E4169B9D-8F6A-4FFA-90D5-44292C448416}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{B07C73B9-A0FB-4871-923B-80DB4EBF652C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mlily.Framework.Utils", "Framework\Mlily.Framework.Utils\Mlily.Framework.Utils.csproj", "{0E9D4F4A-E583-4EF4-B339-976AB4D6DF66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,9 +61,16 @@ Global
 		{E4169B9D-8F6A-4FFA-90D5-44292C448416}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4169B9D-8F6A-4FFA-90D5-44292C448416}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4169B9D-8F6A-4FFA-90D5-44292C448416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E9D4F4A-E583-4EF4-B339-976AB4D6DF66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E9D4F4A-E583-4EF4-B339-976AB4D6DF66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E9D4F4A-E583-4EF4-B339-976AB4D6DF66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E9D4F4A-E583-4EF4-B339-976AB4D6DF66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0E9D4F4A-E583-4EF4-B339-976AB4D6DF66} = {B07C73B9-A0FB-4871-923B-80DB4EBF652C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1B6B02CE-3036-4DA2-954C-F5C56BE7BBED}

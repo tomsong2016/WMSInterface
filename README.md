@@ -5,6 +5,7 @@ WMS与SAP接口，技术比较菜，想写个小工具能检查接口数据报�
 | ------------------- | --------------------------|
 |    1                | Mlily.WMSInterfacer.Core  |
 |    2                | Mlily.WMSInterface.Test   |
+|    3                | Mlily.Framework.Utils     |
 
 ## 目前主要问题
 |         序号  | 主要问题                               | 解决方法                 |

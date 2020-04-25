@@ -19,6 +19,8 @@ namespace Mlily.WMSInterfacer.Core
         /// <returns></returns>
         public string Excute(string data) 
         {
+            DateTime startTime = DateTime.Now;
+            DateTime endTime = DateTime.Now;
             Regex reg = new Regex("<SERVICEID>(.+)</SERVICEID>");
             Match match = reg.Match(data);
             string value = match.Groups[1].Value;
@@ -53,7 +55,10 @@ namespace Mlily.WMSInterfacer.Core
             }
 
             RequestHandleAbstract handleAbstract = (RequestHandleAbstract)Activator.CreateInstance(type);
-            return handleAbstract.Handle(data.Deserialize(RequestTypeFactory.Get(value)), value);
+            var response =  handleAbstract.Handle(data.Deserialize(RequestTypeFactory.Get(value)));
+
+            endTime = DateTime.Now;
+            return XmlSerializerExtent.SerializeXML(response);
         }
 
         /// <summary>

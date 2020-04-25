@@ -16,16 +16,15 @@ namespace Mlily.WMSInterfacer.Core.Handle
 
         public abstract BaseResponse HandleDataExtent(object obj);
 
-        public string Handle(object obj, string serviceId) 
+        public BaseResponse Handle(object obj) 
         {
             var response =  Validate(obj);
-
             if (response.IsSuccess)
             {
-                return HandleData(obj);
+                response = HandleDataExtent(obj);
             }
 
-            return XmlSerializerExtent.SerializeXML(response);
+            return response;
         }
     }
 
