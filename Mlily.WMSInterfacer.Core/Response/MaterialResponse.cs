@@ -7,9 +7,7 @@ namespace Mlily.WMSInterfacer.Core.Response
 {
     [Serializable]
     [XmlRoot("SERVICE")]
-    public class HandmadeMaterialResponse:DefaultResponseModel
+    public class MaterialResponse:DefaultResponseModel
     {
-
-
     }
 }
