@@ -5,8 +5,14 @@ using System.Xml.Serialization;
 
 namespace Mlily.WMSInterfacer.Core.Request
 {
-    public class MaterialRequestData: BaseRequestData
+    public class UnitConversionRequestData : BaseRequestData
     {
+        //<MATNR>000000612300000133</MATNR>
+        //         <MEINH>M</MEINH>
+        //         <UMREN>3000</UMREN>
+        //         <MEINS>PC</MEINS>
+        //         <UMREZ>1</UMREZ>
+
         /// <summary>
         /// 物料编号(MATNR)
         /// </summary>
@@ -14,23 +20,17 @@ namespace Mlily.WMSInterfacer.Core.Request
         public string MaterielCoding { get; set; }
 
         /// <summary>
-        /// 物料类型(MATKL)
+        /// 物料编号(MEINH)
         /// </summary>
-        [XmlElement("MATKL")]
-        public string MaterielType { get; set; }
+        [XmlElement("MEINH")]
+        public string MEINH { get; set; }
 
         /// <summary>
-        /// 物料名称(MAKTX)
+        /// 物料编号(UMREN)
         /// </summary>
-        [XmlElement("MAKTX")]
-        public string MaterielName { get; set; }
-
-        /// <summary>
-        /// 语言(SPRAS)
-        /// </summary>
-        [XmlElement("SPRAS")]
-        public string Language { get; set; }
-
+        [XmlElement("UMREN")]
+        public string UMREN { get; set; }
+        
         /// <summary>
         /// 计量单位(MEINS)
         /// </summary>
@@ -38,9 +38,10 @@ namespace Mlily.WMSInterfacer.Core.Request
         public string UnitMeasurement { get; set; }
 
         /// <summary>
-        /// 重量单位(GEWEI)
+        /// 物料编号(UMREZ)
         /// </summary>
-        [XmlElement("GEWEI")]
-        public string WeightUnit { get; set; }
+        [XmlElement("UMREZ")]
+        public string UMREZ { get; set; }
+
     }
 }

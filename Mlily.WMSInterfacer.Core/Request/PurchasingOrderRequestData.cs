@@ -102,7 +102,7 @@ namespace Mlily.WMSInterfacer.Core.Request
         /// 库存地点(LGORT)
         /// </summary>
         [XmlElement("LGORT")]
-        public string LocationCoding { get; set; }
+        public string StockLocationCoding { get; set; }
 
         /// <summary>
         /// 采购订单数量(MENGE)
@@ -114,7 +114,7 @@ namespace Mlily.WMSInterfacer.Core.Request
         /// 采购订单计量单位(MEINS)
         /// </summary>
         [XmlElement("MEINS")]
-        public string UnitName { get; set; }
+        public string UnitMeasurement { get; set; }
 
         /// <summary>
         /// 采购凭证中的项目类别(PSTYP)

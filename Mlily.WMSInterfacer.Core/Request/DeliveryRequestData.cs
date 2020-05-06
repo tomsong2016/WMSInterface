@@ -71,7 +71,7 @@ namespace Mlily.WMSInterfacer.Core.Request
         /// 库存地点(LGORT)
         /// </summary>
         [XmlElement("LGORT")]
-        public string LocationCoding { get; set; }
+        public string StockLocationCoding { get; set; }
 
         /// <summary>
         /// 交货量(LFIMG)
@@ -83,6 +83,12 @@ namespace Mlily.WMSInterfacer.Core.Request
         /// 基本计量单位(MEINS)
         /// </summary>
         [XmlElement("MEINS")]
-        public string UnitName { get; set; }
+        public string UnitMeasurement { get; set; }
+
+        /// <summary>
+        /// 语言(SPRAS)
+        /// </summary>
+        [XmlElement("SPRAS")]
+        public string Language { get; set; }
     }
 }

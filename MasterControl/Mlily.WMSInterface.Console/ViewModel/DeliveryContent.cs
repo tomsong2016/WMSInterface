@@ -71,7 +71,7 @@ namespace Mlily.WMSInterface.Console.ViewModel
         /// 库存地点(LGORT)
         /// </summary>
         [XmlElement("LGORT")]
-        public string LocationCoding { get;set;}
+        public string StockLocationCoding { get;set;}
 
         /// <summary>
         /// 交货量(LFIMG)
